@@ -53,6 +53,11 @@ export default function RootLayout({
               </Link>
             </li>
             <li>
+              <Link href="/motionpath" className="hover:text-gray-300">
+                Motion Path
+              </Link>
+            </li>
+            <li>
               <Link href="/3d-scroll" className="hover:text-gray-300">
                 3D Scroll
               </Link>

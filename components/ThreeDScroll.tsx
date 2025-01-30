@@ -10,7 +10,7 @@ import type * as THREE from "three";
 gsap.registerPlugin(ScrollTrigger);
 
 function Model() {
-  const { scene } = useGLTF("/assets/3d/duck.glb");
+  const { scene } = useGLTF("/assets/3d/bugatti.glb");
   const modelRef = useRef<THREE.Group>(null);
 
   useFrame(() => {
@@ -38,8 +38,8 @@ export default function ThreeDScroll() {
   }, []);
 
   return (
-    <div className="h-screen">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+    <div className="h-screen bg-white text-red-300">
+      <Canvas camera={{ position: [0, 0, 20], fov: 75 }}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
