@@ -14,4 +14,12 @@ declare module "@/lib/gsap-plugins/MorphSVGPlugin.min.js" {
   const MorphSVGPlugin: any;
   export default MorphSVGPlugin;
 }
+declare module "@/lib/gsap-plugins/MotionPathPlugin.min.js" {
+  const MotionPathPlugin: any;
+  export default MotionPathPlugin;
+}
+declare module "@/lib/gsap-plugins/MotionPathHelper.min.js" {
+  const MotionPathHelper: any;
+  export default MotionPathHelper;
+}
 

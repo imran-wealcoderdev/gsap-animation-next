@@ -48,6 +48,11 @@ export default function RootLayout({
               </Link>
             </li>
             <li>
+              <Link href="/morpsvg" className="hover:text-gray-300">
+                Morph Svg
+              </Link>
+            </li>
+            <li>
               <Link href="/3d-scroll" className="hover:text-gray-300">
                 3D Scroll
               </Link>
