@@ -22,4 +22,12 @@ declare module "@/lib/gsap-plugins/MotionPathHelper.min.js" {
   const MotionPathHelper: any;
   export default MotionPathHelper;
 }
+declare module "@/lib/gsap-plugins/GSDevTools.min.js" {
+  const GSDevTools: any;
+  export default GSDevTools;
+}
+declare module "@/lib/gsap-plugins/InertiaPlugin.min.js" {
+  const InertiaPlugin: any;
+  export default InertiaPlugin;
+}
 
