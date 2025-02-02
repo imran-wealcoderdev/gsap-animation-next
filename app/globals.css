@@ -25,6 +25,34 @@ body {
     text-wrap: balance;
   }
 
+/* for 3d carousel effect */
+.demoWrapper {
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+.box {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  background-color: #06f;
+  display: inline-block;
+  margin: 10px 20px 50px 235px; 
+
+  overflow:hidden;
+}
+.creative-pro{ 
+  border: 1px solid #00fff3;
+  color: #00FFF2;
+ background: transparent;
+  height: 600px;
+}
+
+.creative-pro:hover{
+  
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 #00fff3, 0 6px 20px 0 #00fff3;
+  
+}
 
 
 
