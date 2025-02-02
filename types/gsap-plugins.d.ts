@@ -31,3 +31,8 @@ declare module "@/lib/gsap-plugins/InertiaPlugin.min.js" {
   export default InertiaPlugin;
 }
 
+declare module "@/lib/gsap-plugins/Draggable.min.js" {
+  const Draggable: any;
+  export default Draggable;
+}
+

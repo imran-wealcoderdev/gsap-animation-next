@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { MorphSVGPlugin } from "@/lib/plugins"; // assuming you have the plugin imported here
+import SvgMorphAnimation from "@/components/MorphWord";
 
 gsap.registerPlugin(MorphSVGPlugin);
 
@@ -111,6 +112,7 @@ const MorphSvgAnimation = () => {
       <button onClick={handleReset} className="text-white bg-blue-300 p-5">
         Reset
       </button>
+      <SvgMorphAnimation />
     </div>
   );
 };
