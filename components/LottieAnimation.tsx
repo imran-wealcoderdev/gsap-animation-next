@@ -11,6 +11,9 @@ const LottieAnimation = () => {
   // );
   // const lottieRef = hasLottieAnimation(lottieAnim);
   const lottieRef = hasLottieAnimation(loadingAnim);
+  const lottieRef2 = hasLottieAnimation(
+    "https://assets.codepen.io/35984/tapered_hello.json"
+  );
 
   console.log(lottieRef);
 
@@ -22,10 +25,11 @@ const LottieAnimation = () => {
       <p className="mb-8 text-white">
         Scroll down to see the animation progress
       </p>
-      <div className="h-screen"></div> {/* Spacer to allow scrolling */}
+      {/* <div className="h-screen"></div>  */}
+      <div className=" w-[90vw] left-[5vw]" ref={lottieRef}></div>
       <div
         className="lottie-animation w-[90vw] left-[5vw]"
-        ref={lottieRef}
+        ref={lottieRef2}
       ></div>
     </div>
   );

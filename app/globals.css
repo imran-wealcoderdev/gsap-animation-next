@@ -41,9 +41,11 @@ body {
 }
 
 /* lottie animation  */
-
- /* .lottie-animation path {
-  stroke: #0ae448;
+/* 
+ .lottie-animation {
+  path {
+    stroke: #0ae448;
+   }
  } */
  
 

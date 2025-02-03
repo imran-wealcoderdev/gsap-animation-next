@@ -22,24 +22,28 @@ export default function SvgMorphAnimation() {
       tl.current = gsap.timeline({ repeat: -1 });
 
       // Forward animations
-      tl.current.to(pathRef.current, {
-        duration: 1,
-        morphSVG: targetPath.current,
-      });
-      tl.current.to(pathRef.current, {
-        duration: 1,
-        morphSVG: targetPath2.current,
-      });
+      tl.current.to(
+        pathRef.current,
+        {
+          duration: 1,
+          morphSVG: targetPath.current,
+        },
+        "+=1"
+      );
+      // tl.current.to(pathRef.current, {
+      //   duration: 1,
+      //   morphSVG: targetPath2.current,
+      // });
 
       // Reverse animations
-      tl.current.to(pathRef.current, {
-        duration: 1,
-        morphSVG: targetPath.current,
-      });
-      tl.current.to(pathRef.current, {
-        duration: 1,
-        morphSVG: pathRef.current,
-      });
+      tl.current.to(
+        pathRef.current,
+        {
+          duration: 1,
+          morphSVG: pathRef.current,
+        },
+        "+=1"
+      );
     }
   }, []);
 
