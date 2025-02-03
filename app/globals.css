@@ -40,6 +40,16 @@ body {
   
 }
 
+/* lottie animation  */
+#animationWindow {
+  width: 90vw;
+  left: 5vw;
+ }
+ 
+ #animationWindow path {
+  stroke: #0ae448;
+ }
+ 
 
 
 

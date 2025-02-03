@@ -100,6 +100,7 @@ export default function VideoScrollTrigger() {
       <div className="h-screen flex flex-col items-center justify-center">
         <div className="relative">
           <video
+            onClick={togglePlay}
             ref={videoRef}
             className="w-[640px] h-[360px] bg-black object-cover"
             playsInline

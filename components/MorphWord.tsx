@@ -5,11 +5,8 @@ import { gsap } from "gsap";
 import { MorphSVGPlugin } from "@/lib/plugins";
 import { InertiaPlugin } from "@/lib/plugins";
 
-// Register the InertiaPlugin
-gsap.registerPlugin(InertiaPlugin);
-
-// Register the plugin
-gsap.registerPlugin(MorphSVGPlugin);
+// Register plugins
+gsap.registerPlugin(InertiaPlugin, MorphSVGPlugin);
 
 export default function SvgMorphAnimation() {
   const pathRef = useRef<SVGPathElement>(null);
@@ -21,14 +18,28 @@ export default function SvgMorphAnimation() {
     if (pathRef.current && targetPath.current && targetPath2.current) {
       gsap.set(targetPath.current, { display: "none" });
       gsap.set(targetPath2.current, { display: "none" });
-      tl.current = gsap.timeline({
-        repeat: -1,
+
+      tl.current = gsap.timeline({ repeat: -1 });
+
+      // Forward animations
+      tl.current.to(pathRef.current, {
         duration: 1,
-        yoyo: true,
-        // ease: "power3",
+        morphSVG: targetPath.current,
       });
-      tl.current.to(pathRef.current, { morphSVG: targetPath.current });
-      tl.current.to(pathRef.current, { morphSVG: targetPath2.current });
+      tl.current.to(pathRef.current, {
+        duration: 1,
+        morphSVG: targetPath2.current,
+      });
+
+      // Reverse animations
+      tl.current.to(pathRef.current, {
+        duration: 1,
+        morphSVG: targetPath.current,
+      });
+      tl.current.to(pathRef.current, {
+        duration: 1,
+        morphSVG: pathRef.current,
+      });
     }
   }, []);
 
@@ -43,29 +54,28 @@ export default function SvgMorphAnimation() {
         <g transform="matrix(1,0,0,1,0,0)">
           <path
             ref={pathRef}
-            d=" M77,-118.5 C77,-118.5 21,-98.5 21,-98.5 C21,-98.5 -91.5,85 -91.5,85 C-91.5,85 -5.5,85.5 -5.5,85.5 C-5.5,85.5 9.5,52.5 9.5,52.5 C9.5,52.5 100,52 100,52 C100,52 114,85 114,85 C114,85 200,85 200,85 C200,85 77,-118.5 77,-118.5z"
+            d="M112,-98.5 C112,-98.5 -4,-98.5 -4,-98.5 C-4,-98.5 -91.5,85 -91.5,85 C-91.5,85 -5.5,85.5 -5.5,85.5 C-5.5,85.5 9.5,52.5 9.5,52.5 C9.5,52.5 100,52 100,52 C100,52 114,85 114,85 C114,85 200,85 200,85 C200,85 112,-98.5 112,-98.5z"
             stroke="black"
             fill="transparent"
             strokeWidth="2"
           />
-
           <path
             ref={targetPath}
-            d=" M112,-98.5 C112,-98.5 -4,-98.5 -4,-98.5 C-4,-98.5 -91.5,85 -91.5,85 C-91.5,85 -5.5,85.5 -5.5,85.5 C-5.5,85.5 9.5,52.5 9.5,52.5 C9.5,52.5 100,52 100,52 C100,52 114,85 114,85 C114,85 200,85 200,85 C200,85 112,-98.5 112,-98.5z"
+            d="M77,-118.5 C77,-118.5 21,-98.5 21,-98.5 C21,-98.5 -91.5,85 -91.5,85 C-91.5,85 -5.5,85.5 -5.5,85.5 C-5.5,85.5 9.5,52.5 9.5,52.5 C9.5,52.5 100,52 100,52 C100,52 114,85 114,85 C114,85 200,85 200,85 C200,85 77,-118.5 77,-118.5z"
             stroke="black"
             fill="transparent"
             strokeWidth="2"
           />
           <path
             ref={targetPath2}
-            stroke-linecap="butt"
-            stroke-linejoin="miter"
-            fill-opacity="0"
-            stroke-miterlimit="4"
+            strokeLinecap="butt"
+            strokeLinejoin="miter"
+            fillOpacity="0"
+            strokeMiterlimit="4"
             stroke="rgb(0,0,0)"
-            stroke-opacity="1"
-            stroke-width="2"
-            d=" M86.69920349121094,-112.95760345458984 C86.69920349121094,-112.95760345458984 21,-98.5 21,-98.5 C21,-98.5 -91.5,85 -91.5,85 C-91.5,85 -5.5,85.5 -5.5,85.5 C-5.5,85.5 9.5,52.5 9.5,52.5 C9.5,52.5 100,52 100,52 C100,52 114,85 114,85 C114,85 200,85 200,85 C200,85 86.69920349121094,-112.95760345458984 86.69920349121094,-112.95760345458984z"
+            strokeOpacity="1"
+            strokeWidth="2"
+            d="M86.69920349121094,-112.95760345458984 C86.69920349121094,-112.95760345458984 21,-98.5 21,-98.5 C21,-98.5 -91.5,85 -91.5,85 C-91.5,85 -5.5,85.5 -5.5,85.5 C-5.5,85.5 9.5,52.5 9.5,52.5 C9.5,52.5 100,52 100,52 C100,52 114,85 114,85 C114,85 200,85 200,85 C200,85 86.69920349121094,-112.95760345458984 86.69920349121094,-112.95760345458984z"
           ></path>
         </g>
         <g opacity="1" transform="matrix(1,0,0,1,0,0)">

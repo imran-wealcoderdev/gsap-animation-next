@@ -73,6 +73,11 @@ export default function RootLayout({
               </Link>
             </li>
             <li>
+              <Link href="/lottieanimation" className="hover:text-gray-300">
+                Lottie Animation
+              </Link>
+            </li>
+            <li>
               <Link href="/3d-scroll" className="hover:text-gray-300">
                 3D Scroll
               </Link>
