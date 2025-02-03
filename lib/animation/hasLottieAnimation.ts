@@ -5,17 +5,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-export function hasLottieAnimation(path: string) {
+export function hasLottieAnimation(animationSource: string | object) {
   const lottieRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<any>(null)
   const [animationData, setAnimationData] = useState<any>(null)
 
   useEffect(() => {
-    fetch(path)
-      .then((response) => response.json())
-      .then((data) => setAnimationData(data))
-      .catch((error) => console.error("Error loading Lottie animation:", error))
-  }, [path])
+
+      if (typeof animationSource === "string") {
+        // If it's a URL or path, fetch the JSON
+        fetch(animationSource)
+        .then((response) => response.json())
+        .then((data) => setAnimationData(data))
+        .catch((error) => console.error("Error loading Lottie animation:", error))
+      } else {
+        // If it's already an object, use it directly
+        setAnimationData(animationSource)
+      }
+  }, [animationSource])
 
   useEffect(() => {
     if (!lottieRef.current || !animationData) return
@@ -31,8 +38,10 @@ export function hasLottieAnimation(path: string) {
     const setupScrollTrigger = () => {
       ScrollTrigger.create({
         trigger: lottieRef.current,
-        start: "top center",
-        end: "bottom center",
+        start: "top center-=300",
+        end: "bottom top",
+        markers: true,
+        pin: true,
         scrub: true,
         onUpdate: (self) => {
           if (animationRef.current) {
