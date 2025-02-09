@@ -18,7 +18,7 @@ const LottieAnimation = () => {
   console.log(lottieRef);
 
   return (
-    <div className="bg-[#0e100f] lottie-animation">
+    <div className="bg-[#0e100f]">
       <h1 className="text-4xl font-bold mb-8 text-white">
         Lottie Scroll Animation
       </h1>

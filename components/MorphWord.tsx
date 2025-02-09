@@ -72,8 +72,6 @@ export default function SvgMorphAnimation() {
           />
           <path
             ref={targetPath2}
-            strokeLinecap="butt"
-            strokeLinejoin="miter"
             fillOpacity="0"
             strokeMiterlimit="4"
             stroke="rgb(0,0,0)"
@@ -84,13 +82,11 @@ export default function SvgMorphAnimation() {
         </g>
         <g opacity="1" transform="matrix(1,0,0,1,0,0)">
           <path
-            stroke-linecap="butt"
-            stroke-linejoin="miter"
-            fill-opacity="0"
-            stroke-miterlimit="4"
+            fillOpacity="0"
+            strokeMiterlimit="4"
             stroke="rgb(0,0,0)"
-            stroke-opacity="1"
-            stroke-width="2"
+            strokeOpacity="1"
+            strokeWidth="2"
             d=" M54,-50.5 C54,-50.5 29.5,5.5 29.5,5.5 C29.5,5.5 79,5.5 79,5.5 C79,5.5 54,-50.5 54,-50.5z"
           ></path>
         </g>

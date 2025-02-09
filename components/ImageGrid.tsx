@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import RotatingElement from "./RotateCircle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,24 +41,27 @@ const ImageGrid = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="grid grid-cols-3 gap-4 p-4">
-      {images.map((src, index) => (
-        <div
-          key={index}
-          ref={index === 4 ? middleImageRef : null}
-          className={`relative w-full pb-[100%] overflow-hidden rounded-lg ${
-            index === 4 ? "col-span-1 row-span-1" : ""
-          }`}
-        >
-          <Image
-            src={src || "/placeholder.svg"}
-            alt={`Image ${index + 1}`}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            fill
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
-        </div>
-      ))}
+    <div>
+      <RotatingElement />
+      <div ref={containerRef} className="grid grid-cols-3 gap-4 p-4">
+        {images.map((src, index) => (
+          <div
+            key={index}
+            ref={index === 4 ? middleImageRef : null}
+            className={`relative w-full pb-[100%] overflow-hidden rounded-lg ${
+              index === 4 ? "col-span-1 row-span-1" : ""
+            }`}
+          >
+            <Image
+              src={src || "/placeholder.svg"}
+              alt={`Image ${index + 1}`}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              fill
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
