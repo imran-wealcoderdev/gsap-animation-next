@@ -15,8 +15,6 @@ const LottieAnimation = () => {
     "https://assets.codepen.io/35984/tapered_hello.json"
   );
 
-  console.log(lottieRef);
-
   return (
     <div className="bg-[#0e100f]">
       <h1 className="text-4xl font-bold mb-8 text-white">
