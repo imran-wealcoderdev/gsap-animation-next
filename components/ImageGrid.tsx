@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import RotatingElement from "./RotateCircle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +41,6 @@ const ImageGrid = () => {
 
   return (
     <div>
-      <RotatingElement />
       <div ref={containerRef} className="grid grid-cols-3 gap-4 p-4">
         {images.map((src, index) => (
           <div
